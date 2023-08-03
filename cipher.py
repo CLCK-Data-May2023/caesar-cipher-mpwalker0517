@@ -1,5 +1,11 @@
 # add your code here
 shift = input("Please enter the number of places to shift: ")
+while not shift.isdecimal():
+    print("You need to enter a number between 1 and 25")
+    break
+    
+    
+
 shift = int(shift)
 
 if shift <= 25:
