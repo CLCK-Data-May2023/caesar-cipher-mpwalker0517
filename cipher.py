@@ -1,42 +1,31 @@
 # add your code here
-def caesar_encrypt(plaintext, shift):
-    cipher_text = ""
-    for letter in plaintext:
-
-        # The python string isalpha() method is used to check whether the string consists of alphabets.
-        if letter.isalpha():
-            # get encrypted character with this formula
-            base = ord('A') if letter.isupper() else ord('a')
-            shifted_char = chr((ord(char) - base + shift) % 26 + base)
-            cipher_text += shifted_char
-
-        else:
-            # return character if not an actual letter
-            cipher_text += letter
-
-    return cipher_text
+shift = input("Please enter the number of places to shift: ")
+while not shift.isdecimal():
+    print("You need to enter a number between 1 and 25")
+    break
 
 
-# Decrypting function
-def caesar_decrypt(ciphertext, shift):
-    return caesar_encrypt(ciphertext, -shift)
 
-# Keep looping until break
-while True:
-    cipher_shift = int(input("Enter the Number of Shift:"))
-    if cipher_shift == 0:
-        print("Please Input a valid shift Number")
-        continue
-    else:
-        break
+shift = int(shift)
 
-# Ask User for a Phrase
-plaintext = input("Enter Phrase:")    
+if shift <= 25:
+    ""
+else:
+    print("You need to enter a number between 0 and 25!")
 
-# Encrypts the Text
-encrypted_text = caesar_encrypt(plaintext, cipher_shift)
-print("Encrypted:", encrypted_text)
+message = input("Please enter a sentence: ").lower()
 
-# Decrypts the Text
-decrypted_text = caesar_decrypt(encrypted_text, cipher_shift)
-print("Decrypted:", decrypted_text)
+abc = "abcdefghijklmnopqrstuvwxyz"
+cipher = ' '
+
+for char in message:
+    if char in abc:
+        index = abc.find(char)
+        index = index + shift
+        if index > 25:
+            index -= 26
+        char = abc[index]
+    cipher += char
+
+
+print("The encrypted senctence is:", cipher) 
