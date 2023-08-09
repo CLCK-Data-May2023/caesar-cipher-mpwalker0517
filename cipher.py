@@ -18,4 +18,4 @@ for char in message:
     cipher += char
 
 
-print("The encrypted senctence is: ", cipher)
+print("The encrypted sentence is: ",cipher)
