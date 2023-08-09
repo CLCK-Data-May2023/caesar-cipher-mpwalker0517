@@ -1,6 +1,8 @@
 # add your code here
 shift = 5
 
+shift = int(shift)
+
 message = input("Please enter a sentence: ").lower()
 
 abc = "abcdefghijklmnopqrstuvwxyz"
